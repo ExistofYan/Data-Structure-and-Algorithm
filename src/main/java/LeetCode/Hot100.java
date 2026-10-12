@@ -57,6 +57,22 @@ public class Hot100 {
         }
     }
 
+    //4移动零
+    class Solution4 {
+        public void moveZeroes(int[] nums) {
+            int p=0;
+            for(int i=0;i<nums.length;i++){
+                p=i;
+                while(p<nums.length-1 && nums[p]==0){
+                    p++;
+                }
+                if(nums[i]==0){
+                    nums[i]=nums[p];
+                    nums[p]=0;
+                }
+            }
+        }
+    }
 
 
 
