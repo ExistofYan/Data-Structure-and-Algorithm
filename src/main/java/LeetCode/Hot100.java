@@ -92,6 +92,35 @@ public class Hot100 {
         }
     }
 
+    //7无重复字符的最长子串
+    class Solution7 {
+        public int lengthOfLongestSubstring(String s) {
+            if(s==null) return 0;
+            Map<Integer,Character> map=new HashMap<>();
+            int i=0;
+            int j=0;
+            int maxLength=0;
+            int currentLength=0;
+            char[] chars=s.toCharArray();
+            while(j<chars.length){
+                if(map.containsValue(chars[j])){//包含chars[j]
+                    while(map.get(i)!=chars[j]){
+                        map.remove(i);//删除之前的元素
+                        i++;//i指针往前移动
+                    }
+                    map.remove(i);//等于的那个也删掉
+                    i++;//向前移
+                    currentLength=j-i;//现有长度，因为j已经++了在21行，j-1+i+1 -> j+i
+                }else{
+                    map.put(j,chars[j]);
+                    j++;
+                    currentLength++;
+                }
+                maxLength=Math.max(maxLength,currentLength);
+            }
+            return maxLength;
+        }
+    }
 
 
 
