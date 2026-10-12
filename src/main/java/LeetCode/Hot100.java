@@ -36,7 +36,26 @@ public class Hot100 {
         }
     }
 
-
+    //3最长连续序列
+    class Solution3 {
+        public int longestConsecutive(int[] nums) {
+            if(nums.length<=1) return nums.length;
+            Arrays.sort(nums);
+            int max=1;
+            int time=1;
+            for(int i=0;i<nums.length-1;i++){
+                if(nums[i]+1==nums[i+1]){
+                    time++;
+                    max=Math.max(time,max);
+                }else if(nums[i]==nums[i+1]){
+                    continue;
+                }else{
+                    time=1;
+                }
+            }
+            return max;
+        }
+    }
 
 
 
@@ -45,3 +64,10 @@ public class Hot100 {
 
 
 }
+/*
+
+git add .
+git commit -m "leetcode"
+git push
+
+ */
