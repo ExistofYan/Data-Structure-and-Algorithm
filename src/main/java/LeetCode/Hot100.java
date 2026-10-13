@@ -92,8 +92,12 @@ public class Hot100 {
         }
     }
 
-    //7无重复字符的最长子串
-    class Solution7 {
+    //6三数之和
+
+    //7接雨水
+
+    //8无重复字符的最长子串
+    class Solution8 {
         public int lengthOfLongestSubstring(String s) {
             if(s==null) return 0;
             Map<Integer,Character> map=new HashMap<>();
@@ -122,8 +126,8 @@ public class Hot100 {
         }
     }
 
-    //8找到字符串中所有字母异位词
-    class Solution8 {
+    //9找到字符串中所有字母异位词
+    class Solution9 {
         public List<Integer> findAnagrams(String s, String p) {
             if(s==null || s.length() < p.length()) return new ArrayList<>();
             int[] forp=new int[26];
@@ -155,8 +159,8 @@ public class Hot100 {
         }
     }
 
-    //9和为 K 的子数组
-    class Solution9 {
+    //10和为 K 的子数组，卡住了，目前还没理解透彻
+    class Solution10 {
         public int subarraySum(int[] nums, int k) {
             Map<Integer,Integer> map=new HashMap<>();
             int times=0;
@@ -168,6 +172,23 @@ public class Hot100 {
                 map.put(sum,map.getOrDefault(sum,0)+1);
             }
             return times;
+        }
+    }
+
+    //11滑动窗口最大值
+
+    //12最小覆盖字串
+
+    //13最大子数组和
+    class Solution13 {
+        public int maxSubArray(int[] nums) {
+            int current=0;
+            int max=Integer.MIN_VALUE;
+            for(int i=0;i<nums.length;i++){
+                current=Math.max(current+nums[i],nums[i]);
+                max=Math.max(max,current);
+            }
+            return max;
         }
     }
 
