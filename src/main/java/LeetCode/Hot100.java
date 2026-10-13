@@ -122,7 +122,38 @@ public class Hot100 {
         }
     }
 
-
+    //8找到字符串中所有字母异位词
+    class Solution8 {
+        public List<Integer> findAnagrams(String s, String p) {
+            if(s==null || s.length() < p.length()) return new ArrayList<>();
+            int[] forp=new int[26];
+            int[] fors=new int[26];
+            char[] charsp=p.toCharArray();
+            for(char c : charsp){
+                forp[c-'a']++;
+            }
+            int front=0;
+            int aft=p.length();
+            ArrayList<Integer> list=new ArrayList<>();
+            char[] charss=s.toCharArray();
+            for(int i=0;i<p.length();i++){
+                fors[charss[i]-'a']++;
+            }
+            if(Arrays.equals(forp,fors)){
+                list.add(0);
+            }
+            while(aft<s.length()){
+                fors[charss[front]-'a']--;
+                front++;
+                fors[charss[aft]-'a']++;
+                if(Arrays.equals(forp,fors)){
+                    list.add(front);
+                }
+                aft++;
+            }
+            return list;
+        }
+    }
 
 
 
