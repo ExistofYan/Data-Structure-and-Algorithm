@@ -244,6 +244,24 @@ public class Hot100 {
         }
     }
 
+    //17缺失的第一个正数
+    class Solution17 {
+        public int firstMissingPositive(int[] nums) {
+            Set<Integer> set=new TreeSet<>();
+            for(int x :nums) {
+                if(x<=0) continue;
+                set.add(x);
+            }
+            int n=1;
+            for(Integer x :set){
+                if(x!=n) {
+                    return n;
+                }
+                n++;
+            }
+            return n;
+        }
+    }
 
 }
 /*
