@@ -192,6 +192,25 @@ public class Hot100 {
         }
     }
 
+    //14合并区间
+    class Solution14 {
+        public int[][] merge(int[][] intervals) {
+            if(intervals==null) return new int[0][0];
+            Arrays.sort(intervals,(k,v)->k[0]-v[0]);
+            List<int[]> list=new ArrayList<>();
+            for(int[] x : intervals){
+                if(list.isEmpty() || list.get(list.size()-1)[1]<x[0]){
+                    list.add(x);
+                }
+                if(list.get(list.size()-1)[1]>=x[0]){
+                    list.get(list.size()-1)[1]=Math.max(list.get(list.size()-1)[1],x[1]);
+                }
+            }
+            return list.toArray(new int[list.size()][]);
+        }
+    }
+
+
 }
 /*
 
