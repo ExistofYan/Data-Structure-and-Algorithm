@@ -379,7 +379,24 @@ public class Hot100 {
         }
     }
 
-
+    //24旋转图像
+    class Solution24 {
+        public void rotate(int[][] matrix) {
+            List<Integer> list=new ArrayList<>();
+            for(int i=0;i<matrix[0].length;i++){
+                for(int j=matrix.length-1;j>=0;j--){
+                    list.add(matrix[j][i]);
+                }
+            }
+            int index=0;
+            for(int i=0;i<matrix.length;i++){
+                for(int j=0;j<matrix[0].length;j++){
+                    matrix[i][j]=list.get(index);
+                    index++;
+                }
+            }
+        }
+    }
 
 
 }
