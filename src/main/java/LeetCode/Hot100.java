@@ -226,6 +226,25 @@ public class Hot100 {
         }
     }
 
+    //16除了自身以外数组的乘积
+    class Solution16 {
+        public int[] productExceptSelf(int[] nums) {
+            if(nums==null || nums.length == 0) return new int[nums.length];
+            int[] arr=new int[nums.length];
+            arr[0]=1;
+            for(int i=1;i<nums.length;i++){
+                arr[i] = nums[i-1] * arr[i-1];
+            }
+            int r=1;
+            for(int i=nums.length-1;i>=0;i--){
+                arr[i] = arr[i] * r;
+                r = r * nums[i];
+            }
+            return arr;
+        }
+    }
+
+
 }
 /*
 
