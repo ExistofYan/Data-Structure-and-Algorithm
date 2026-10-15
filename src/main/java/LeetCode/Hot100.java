@@ -210,6 +210,21 @@ public class Hot100 {
         }
     }
 
+    //15轮转数组
+    class Solution15 {
+        public void rotate(int[] nums, int k) {
+            if(k == nums.length) return;
+            int size = k % nums.length;
+            int[] copy1=new int[size];
+            System.arraycopy(nums,nums.length-size,copy1,0,size);
+            int[] copy2=new int[nums.length-size];
+            System.arraycopy(nums,0,copy2,0,nums.length-size);
+
+
+            System.arraycopy(copy1,0,nums,0,copy1.length);
+            System.arraycopy(copy2,0,nums,size,copy2.length);
+        }
+    }
 
 }
 /*
