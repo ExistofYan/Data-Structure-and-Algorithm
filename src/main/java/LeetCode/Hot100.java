@@ -398,6 +398,33 @@ public class Hot100 {
         }
     }
 
+    //25搜索二维矩阵 II
+    class Solution25 {
+        public boolean searchMatrix(int[][] matrix, int target) {
+            int right=matrix[0].length-1;
+            for(int i=0;i<matrix.length;i++){
+                if(matrix[i][0]==target || matrix[i][right]==target){
+                    return true;
+                }else if(matrix[i][0]<target && matrix[i][right]>target){
+                    int p1=0;
+                    int p2=right;
+                    while(p1<=p2){
+                        int mid=(p1+p2)>>>1;
+                        if(matrix[i][mid]==target){
+                            return true;
+                        }else if(matrix[i][mid]<target){
+                            p1=mid+1;
+                        }else{
+                            p2=mid-1;
+                        }
+                    }
+                }else if(matrix[i][0]>target){
+                    break;
+                }
+            }
+            return false;
+        }
+    }
 
 }
 /*
