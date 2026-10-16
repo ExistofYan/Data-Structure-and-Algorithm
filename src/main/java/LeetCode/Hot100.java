@@ -502,7 +502,7 @@ public class Hot100 {
     }
 
     //27合并两个有序链表
-    class Solution {
+    class Solution27 {
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
             if(list1==null) return list2;
             if(list2==null) return list1;
@@ -526,6 +526,34 @@ public class Hot100 {
                 p=p.next;
             }
             return head.next;
+        }
+    }
+
+    //28两数相加
+
+    //29删除链表的倒数第 N 个结点
+    class Solution29 {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
+            if(n==0 || head==null) return head;
+            ListNode p=head;
+            int num=0;
+            while(p!=null){
+                p=p.next;
+                num++;
+            }
+            p=head;
+            if(num<n) return head;
+            int index=num-n;
+            if(index==0){
+                return head.next;
+            }
+            for(int i=1;i<index;i++){
+                p=p.next;
+            }
+            ListNode delete=p.next;
+            ListNode node=delete.next;
+            p.next=node;
+            return head;
         }
     }
 
