@@ -584,7 +584,7 @@ public class Hot100 {
         }
     }
 
-    //31K 个一组翻转链表
+    //31 K 个一组翻转链表
     class Solution31 {
         public ListNode reverseKGroup(ListNode head, int k) {
             if(head==null || head.next==null || k <= 1) return head;
@@ -629,7 +629,29 @@ public class Hot100 {
         }
     }
 
+    //32随机链表的复制
 
+    //33排序链表
+    class Solution33 {
+        public ListNode sortList(ListNode head) {
+            if(head==null ||head.next==null) return head;
+            Queue<ListNode> q=new PriorityQueue<>((x,y)->x.val-y.val);
+            ListNode p=head;
+            while(p!=null){
+                q.offer(p);
+                p=p.next;
+            }
+            ListNode first=new ListNode(Integer.MIN_VALUE,null);
+            ListNode pointer=first;
+            while(!q.isEmpty()){
+                ListNode node=q.poll();
+                pointer.next=node;
+                node.next=null;
+                pointer=pointer.next;
+            }
+            return first.next;
+        }
+    }
 
 
 
