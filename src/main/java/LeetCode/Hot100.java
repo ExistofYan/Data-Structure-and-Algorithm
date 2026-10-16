@@ -557,6 +557,32 @@ public class Hot100 {
         }
     }
 
+    //30两两交换链表中的节点
+    class Solution {
+        public ListNode swapPairs(ListNode head) {
+            if(head==null || head.next==null) return head;
+            ListNode first=new ListNode(-1,head);
+            ListNode p1=first;
+            ListNode p2=head;
+            ListNode p3=head.next;
+            while(p3!=null){
+                ListNode p4=p3.next;
+                //p1 p2 p3 p4
+                p1.next=p3;
+                p3.next=p2;
+                p2.next=p4;
+                //p1 p3 p2 p4
+                if(p4!=null){
+                    p3=p4.next;
+                    p2=p4;
+                    p1=p1.next.next;
+                }else{
+                    break;
+                }
+            }
+            return first.next;
+        }
+    }
 
 
 
