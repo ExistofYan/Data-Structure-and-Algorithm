@@ -584,6 +584,50 @@ public class Hot100 {
         }
     }
 
+    //31K 个一组翻转链表
+    class Solution31 {
+        public ListNode reverseKGroup(ListNode head, int k) {
+            if(head==null || head.next==null || k <= 1) return head;
+            ListNode first=new ListNode(-1,head);
+            ListNode p1=first;
+            ListNode p2=head;
+            ListNode p3=head;
+            while(p3!=null){
+                for(int i=1;p3!=null && i<k;i++){
+                    p3=p3.next;
+                }
+                if(p3==null){
+                    break;
+                }
+                ListNode p4=p3.next;
+                p3.next=null;
+                p1.next=reverseListNode(p2);
+                //p1 p3 ....... p2 p4
+                p2.next=p4;
+                p1=p2;
+                p3=p4;
+                p2=p4;
+            }
+            return first.next;
+        }
+        private ListNode reverseListNode(ListNode head){
+            if(head==null || head.next==null) return head;
+            ListNode first=new ListNode(-1,head);
+            ListNode p2=head.next;
+            ListNode p1=head;
+            //first p1 p2 p3 _ _ _
+            while(p2!=null){
+                ListNode p3=p2.next;
+                ListNode afterFirst=first.next;
+                first.next=p2;
+                p2.next=afterFirst;
+                p1.next=p3;
+                //first p2 p1 p3
+                p2=p3;
+            }
+            return first.next;
+        }
+    }
 
 
 
