@@ -558,7 +558,7 @@ public class Hot100 {
     }
 
     //30两两交换链表中的节点
-    class Solution {
+    class Solution30 {
         public ListNode swapPairs(ListNode head) {
             if(head==null || head.next==null) return head;
             ListNode first=new ListNode(-1,head);
@@ -653,6 +653,28 @@ public class Hot100 {
         }
     }
 
+    //34合并 K 个升序链表
+    class Solution34 {
+        public ListNode mergeKLists(ListNode[] lists) {
+            Queue<ListNode> q=new PriorityQueue<>((x,y)->x.val-y.val);
+            for(ListNode x : lists){
+                ListNode pointer=x;
+                while(pointer!=null){
+                    q.offer(pointer);
+                    pointer=pointer.next;
+                }
+            }
+            ListNode first=new ListNode(Integer.MIN_VALUE,null);
+            ListNode p=first;
+            while(!q.isEmpty()){
+                ListNode node=q.poll();
+                p.next=node;
+                node.next=null;
+                p=p.next;
+            }
+            return first.next;
+        }
+    }
 
 
 
