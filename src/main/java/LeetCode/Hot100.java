@@ -310,42 +310,7 @@ public class Hot100 {
     }
 
     //19螺旋矩阵
-
-    //20旋转图像
-
-    //21搜索二维矩阵II
-
-    //22相交链表
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
-    public class Solution22 {
-        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-            ListNode pointerA = headA;
-            ListNode pointerB = headB;
-            while (pointerA != pointerB) {
-                if (pointerA == null) {
-                    pointerA = headB;
-                } else {
-                    pointerA = pointerA.next;
-                }
-                if (pointerB == null) {
-                    pointerB = headA;
-                } else {
-                    pointerB = pointerB.next;
-                }
-            }
-            return pointerA;
-        }
-    }
-
-    //23螺旋矩阵
-    class Solution23 {
+    class Solution19 {
         public List<Integer> spiralOrder(int[][] matrix) {
             int left=0;
             int right=matrix[0].length-1;
@@ -373,14 +338,13 @@ public class Hot100 {
                     }
                     left++;
                 }
-
             }
             return list;
         }
     }
 
-    //24旋转图像
-    class Solution24 {
+    //20旋转图像
+    class Solution20 {
         public void rotate(int[][] matrix) {
             List<Integer> list=new ArrayList<>();
             for(int i=0;i<matrix[0].length;i++){
@@ -398,8 +362,8 @@ public class Hot100 {
         }
     }
 
-    //25搜索二维矩阵 II
-    class Solution25 {
+    //21搜索二维矩阵II
+    class Solution21 {
         public boolean searchMatrix(int[][] matrix, int target) {
             int right=matrix[0].length-1;
             for(int i=0;i<matrix.length;i++){
@@ -425,6 +389,59 @@ public class Hot100 {
             return false;
         }
     }
+
+    //22相交链表
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x, ListNode head) {
+            val = x;
+            next = null;
+        }
+    }
+    public class Solution22 {
+        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode pointerA = headA;
+            ListNode pointerB = headB;
+            while (pointerA != pointerB) {
+                if (pointerA == null) {
+                    pointerA = headB;
+                } else {
+                    pointerA = pointerA.next;
+                }
+                if (pointerB == null) {
+                    pointerB = headA;
+                } else {
+                    pointerB = pointerB.next;
+                }
+            }
+            return pointerA;
+        }
+    }
+
+    //23反转链表
+    class Solution23 {
+        public ListNode reverseList(ListNode head) {
+            if(head==null || head.next==null) return head;
+            ListNode first=new ListNode(-1,head);
+            ListNode p1=head;
+            ListNode p2=p1.next;
+            while(p2!=null){
+                ListNode node=p2.next;
+                ListNode afterFirst=first.next;
+                first.next=p2;
+                p2.next=afterFirst;
+                p1.next=node;
+                p2=node;
+            }
+            return first.next;
+        }
+    }
+
+    //24旋转图像
+
+    //25搜索二维矩阵 II
+
 
 }
 /*
