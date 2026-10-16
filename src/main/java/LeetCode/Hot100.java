@@ -438,7 +438,27 @@ public class Hot100 {
         }
     }
 
-    //24旋转图像
+    //24回文链表
+    class Solution24 {
+        public boolean isPalindrome(ListNode head) {
+            if(head==null || head.next==null) return true;
+            ListNode pointer=head;
+            List<Integer> list=new ArrayList<>();
+            while(pointer!=null){
+                list.add(pointer.val);
+                pointer=pointer.next;
+            }
+            int i=0;
+            int j=list.size()-1;
+            while(i<=j){
+                if(list.get(i)==list.get(j)){
+                    i++;
+                    j--;
+                }else {return false;}
+            }
+            return true;
+        }
+    }
 
     //25搜索二维矩阵 II
 
