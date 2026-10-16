@@ -501,6 +501,44 @@ public class Hot100 {
         }
     }
 
+    //27合并两个有序链表
+    class Solution {
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            if(list1==null) return list2;
+            if(list2==null) return list1;
+            Queue<ListNode> q=new PriorityQueue<>((k,v)->k.val-v.val);
+            ListNode p1=list1;
+            ListNode p2=list2;
+            while(p1!=null){
+                q.add(p1);
+                p1=p1.next;
+            }
+            while(p2!=null){
+                q.offer(p2);
+                p2=p2.next;
+            }
+            ListNode head=new ListNode(Integer.MIN_VALUE,null);
+            ListNode p=head;
+            while(!q.isEmpty()){
+                ListNode node=q.poll();
+                node.next=null;
+                p.next=node;
+                p=p.next;
+            }
+            return head.next;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
 /*
 
