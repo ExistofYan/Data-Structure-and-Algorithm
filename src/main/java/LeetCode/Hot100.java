@@ -460,7 +460,22 @@ public class Hot100 {
         }
     }
 
-    //25搜索二维矩阵 II
+    //25环形链表
+    public class Solution25 {
+        public boolean hasCycle(ListNode head) {
+            if(head==null) return false;
+            ListNode fast=head;
+            ListNode slow=head;
+            while(fast!=null && fast.next!=null){
+                fast=fast.next.next;
+                slow=slow.next;
+                if(slow==fast){
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 
 
 }
