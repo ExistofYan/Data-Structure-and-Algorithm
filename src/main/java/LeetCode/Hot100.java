@@ -477,6 +477,29 @@ public class Hot100 {
         }
     }
 
+    //26环形链表 II
+    public class Solution26 {
+        public ListNode detectCycle(ListNode head) {
+            if(head==null || head.next==null) return null;
+            ListNode fast=head;
+            ListNode slow=head;
+            boolean iscircle=false;
+            while(fast!=null && fast.next!=null){
+                fast=fast.next.next;
+                slow=slow.next;
+                if(slow==fast) {iscircle=true;break;}
+            }
+            if(iscircle==true){
+                fast=head;
+                while(fast!=slow){
+                    fast=fast.next;
+                    slow=slow.next;
+                }
+                return fast;
+            }
+            return null;
+        }
+    }
 
 }
 /*
