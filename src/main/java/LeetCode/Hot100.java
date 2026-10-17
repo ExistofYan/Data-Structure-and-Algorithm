@@ -718,6 +718,16 @@ public class Hot100 {
         }
     }
 
+    //37翻转二叉树
+    class Solution37 {
+        public TreeNode invertTree(TreeNode root) {
+            if(root==null) return null;
+            TreeNode t=root.right;
+            root.right=root.left;
+            root.left=t;
+            return new TreeNode(root.val,invertTree(root.left),invertTree(root.right));
+        }
+    }
 
 
 }
