@@ -743,6 +743,24 @@ public class Hot100 {
         }
     }
 
+    //39二叉树的直径 ——> 目前理解不了！！！！
+    class Solution39 {
+        private int d=0;
+        public int diameterOfBinaryTree(TreeNode root) {
+            maxDiameter(root);
+            return d;
+        }
+        private int maxDiameter(TreeNode root){
+            if(root==null) return 0;
+            int leftDepth=maxDiameter(root.left);
+            int rightdepth=maxDiameter(root.right);
+            d=Math.max(d,leftDepth+rightdepth);
+            return Math.max(leftDepth,rightdepth)+1;
+        }
+    }
+
+
+
 }
 /*
 
