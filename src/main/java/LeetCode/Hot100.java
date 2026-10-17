@@ -705,7 +705,18 @@ public class Hot100 {
         }
     }
 
-
+    //36二叉树的最大深度
+    class Solution36 {
+        public int maxDepth(TreeNode root) {
+            return maxDepth1(root);
+        }
+        private int maxDepth1(TreeNode root){
+            if(root==null) return 0;
+            int depth=0;
+            depth=Math.max(maxDepth(root.left)+1, maxDepth(root.right)+1);
+            return depth;
+        }
+    }
 
 
 
