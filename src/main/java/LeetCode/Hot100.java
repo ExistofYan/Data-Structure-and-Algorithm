@@ -676,6 +676,34 @@ public class Hot100 {
         }
     }
 
+    //35二叉树的中序遍历
+//     Definition for a binary tree node.
+     public class TreeNode {
+          int val;
+          TreeNode left;
+          TreeNode right;
+          TreeNode() {}
+          TreeNode(int val) { this.val = val; }
+          TreeNode(int val, TreeNode left, TreeNode right) {
+              this.val = val;
+              this.left = left;
+              this.right = right;
+          }
+      }
+    class Solution35 {
+        public List<Integer> inorderTraversal(TreeNode root) {
+            if(root==null) return new ArrayList<Integer>();
+            ArrayList<Integer> list=new ArrayList<>();
+            travel(root,list);
+            return list;
+        }
+        private void travel(TreeNode root, ArrayList<Integer> list){
+            if(root==null) return;
+            travel(root.left,list);
+            list.add(root.val);
+            travel(root.right,list);
+        }
+    }
 
 
 
