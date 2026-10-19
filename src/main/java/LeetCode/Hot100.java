@@ -759,7 +759,29 @@ public class Hot100 {
         }
     }
 
+    //40二叉树的层序遍历
+    class Solution40 {
+        public List<List<Integer>> levelOrder(TreeNode root) {
+            if(root==null) return new ArrayList<>();
+            List<List<Integer>> list1=new ArrayList<>();
+            Queue<TreeNode> q=new ArrayDeque<>();
+            q.offer(root);
+            while(!q.isEmpty()){
+                List<Integer> list2=new ArrayList<>();
+                int size=q.size();
+                for(int i=0;i<size;i++){
+                    TreeNode node=q.poll();
+                    list2.add(node.val);
+                    if(node.left!=null) q.offer(node.left);
+                    if(node.right!=null) q.offer(node.right);
+                }
+                list1.add(list2);
+            }
+            return list1;
+        }
+    }
 
+    //41
 
 }
 /*
