@@ -844,6 +844,28 @@ public class Hot100 {
         }
     }
 
+    //45二叉树展开为链表
+    class Solution45 {
+        public void flatten(TreeNode root) {
+            Queue<TreeNode> q=new ArrayDeque<>();
+            travel(root,q);
+            root=new TreeNode(-1,null,null);
+            TreeNode pointer=root;
+            while(!q.isEmpty()){
+                TreeNode node=q.poll();
+                pointer.right=node;
+                pointer.left=null;
+                pointer=pointer.right;
+            }
+            root=root.right;
+        }
+        private void travel(TreeNode root, Queue<TreeNode> q){
+            if(root==null) return;
+            q.offer(root);
+            if(root.left!=null) travel(root.left,q);
+            if(root.right!=null) travel(root.right,q);
+        }
+    }
 
 
 
