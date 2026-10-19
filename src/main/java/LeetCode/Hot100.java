@@ -781,7 +781,7 @@ public class Hot100 {
         }
     }
 
-    //41将有序数组转换为二叉搜索树
+    //41将有序数组转换为二叉搜索树 *
     class Solution41 {
         public TreeNode sortedArrayToBST(int[] nums) {
             return build(nums,0,nums.length-1);
@@ -796,7 +796,7 @@ public class Hot100 {
         }
     }
 
-    //42验证二叉搜索树
+    //42验证二叉搜索树 *
     class Solution42 {
         public boolean isValidBST(TreeNode root) {
             return travel(root,Long.MIN_VALUE,Long.MAX_VALUE);
@@ -809,7 +809,20 @@ public class Hot100 {
         }
     }
 
-
+    //43二叉搜索树中第 K 小的元素
+    class Solution43 {
+        public int kthSmallest(TreeNode root, int k) {
+            List<Integer> list=new ArrayList<>();
+            travel(root,list);
+            return list.get(k-1);
+        }
+        private void travel(TreeNode tree,List<Integer> list){
+            if(tree==null) return;
+            travel(tree.left,list);
+            list.add(tree.val);
+            travel(tree.right,list);
+        }
+    }
 
 }
 /*
