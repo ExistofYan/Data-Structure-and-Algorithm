@@ -781,7 +781,22 @@ public class Hot100 {
         }
     }
 
-    //41
+    //41将有序数组转换为二叉搜索树
+    class Solution41 {
+        public TreeNode sortedArrayToBST(int[] nums) {
+            return build(nums,0,nums.length-1);
+        }
+        private TreeNode build(int[] nums,int lower,int higher){
+            if(lower > higher) return null;
+            int middle = lower + (higher - lower)/2;
+            TreeNode root=new TreeNode(nums[middle]);
+            root.left=build(nums,lower,middle-1);
+            root.right=build(nums,middle+1,higher);
+            return root;
+        }
+    }
+
+
 
 }
 /*
