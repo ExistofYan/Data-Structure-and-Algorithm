@@ -796,6 +796,19 @@ public class Hot100 {
         }
     }
 
+    //42验证二叉搜索树
+    class Solution42 {
+        public boolean isValidBST(TreeNode root) {
+            return travel(root,Long.MIN_VALUE,Long.MAX_VALUE);
+        }
+        private boolean travel(TreeNode root,long lower,long higher){
+            if(root==null) return true;
+            if(lower >= root.val) return false;
+            if(higher <= root.val) return false;
+            return travel(root.left,lower,root.val) && travel(root.right,root.val,higher);
+        }
+    }
+
 
 
 }
